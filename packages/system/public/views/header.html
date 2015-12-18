@@ -1,0 +1,46 @@
+<div class="page-header" data-ng-controller="HeaderController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#!/home" ui-sref="home"><img src="/system/assets/img/Logov4.png" width="55%" height="150%"/></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <div class="account">
+
+                        <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
+                            <li><a data-toggle="modal" data-target="#register-modal">Register</a>
+                            </li>
+                            <!--<li class="divider-vertical"></li>-->
+                            <li><a data-toggle="modal" data-target="#login-modal">Log In</a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav nav"  data-ng-show="global.authenticated">
+                            <li ng-if="global.user.profile" class="dropdown" mean-profile-menu></li>
+                            <li ng-if="!global.user.profile" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    {{global.user.name}} <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/#!/auth/profile/overzicht/{{global.user._id}}">Profiel</a></li>
+                                    <li><a href="/logout">Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+</div>

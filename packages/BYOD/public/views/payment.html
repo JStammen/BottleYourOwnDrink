@@ -1,0 +1,95 @@
+<section class="welcome container" data-ng-controller="PaymentController" data-ng-init="retrieveMadeBottle()">
+    <div class="page {{ pageIndex }}" ng-view></div>
+    <div class="header_one">
+        <h1>Bottle Your Own Drink</h1>
+    </div>
+    <div ng-app="formApp" ng-controller="PaymentController" class="row" style="padding:20px;">
+        <form class="form-horizontal" name="myForm" role="form" ng-submit="submitForm(myForm.$valid)" novalidate>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="firstname" >Voornaam</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="fname" id="firstname" ng-model="fname" placeholder=Voornaam value="{{name}}" required>
+                        <p ng-show="myForm.fname.$invalid && !myForm.fname.$pristine" class="help-block">Vul uw voornaam in.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="lastname">Achternaam</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="lname" id="lastname" ng-model="name" placeholder=Achternaam required>
+                        <p ng-show="myForm.lname.$invalid && !myForm.lname.$pristine" class="help-block">Vul uw achternaam in.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="address">Adres</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="address" ng-model="address" id="address" placeholder="Adres" required>
+                        <p ng-show="myForm.address.$invalid && !myForm.address.$pristine" class="help-block">Vul uw adres in.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="zip">Postcode</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"  ng-pattern="zipPattern"  ng-required="requireZip" name="zip" id="zip" ng-model="zip" placeholder="Postcode">
+                        <p ng-show="myForm.zip.$invalid && !myForm.zip.$pristine" class="help-block">Vul uw postcode in.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" ng-model="email" for="email" required>Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" name="email" id="email" ng-model="email" placeholder="Enter email" value="{{email}}">
+                        <p ng-show="myForm.email.$invalid && !myForm.email.$pristine" class="help-block">Vul uw email in.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Meld je aan voor de nieuwsbrief</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="terms" ng-model="terms" required>Algemene voorwaarden *</label>
+                            <p ng-show="myForm.terms.$invalid && !myForm.terms.$pristine" class="help-block">Dit is verplicht.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <canvas id="canvaspayment" width="140" height="480"></canvas>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class="col-sm-4"  style="float:right;">
+                        <input type="text" id="price" ng-model="price" value="15" style="display: none;"/>
+                    </div>
+                    <div class="col-sm-8" style="margin-bottom: 20px; float: right">
+                        <label class="control-label col-sm-8" for="zip">Hoeveel flessen?</label>
+                        <div class="col-sm-4"  style="float:right">
+                            <input type="number" id="productAmount" class="form-control" min="1" value="1">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <label class="control-label col-sm-8" for="zip">Totaalbedrag</label>
+                        <div class="col-sm-4"  style="float:right">
+                            <input type="text" class="form-control" id="totalsum" placeholder="totaalbedrag" value="15">
+                        </div>
+                    </div>
+                </div>
+                <h3>Betalingsmethode</h3>
+                <div class="form-group">
+                    <div class="jumbotron">
+                        <p class="col-sm-12">selecteer een *</p>
+                        <div ng-repeat="subscription in entities">
+                            <input type="checkbox" ng-model="subscription.checked" data="{{subscription.data}}" ng-click="updateSelection($index, entities, $event)"  />
+                            <label ng-bind="subscription.label"></label>
+                        </div>
+                        <button type="submit" class="btn btn-default" ng-disabled="myForm.$invalid || !checked()" style="float: right">Koop nu</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<section class="welcome container-fluid">
+    <div class="col-md-12 row">
+        <h1>Pick your bottle</h1>
+        <ul>
+            <li ng-repeat="bottle in bottles">
+             <span>
+                  <figure>
+                      <img ng-click="selection(bottle)" class="deselected" src="{{bottle.image}}" id="{{bottle.name}}">
+                      <figcaption>{{bottle.name}}</figcaption>
+                  </figure>
+             </span>
+            </li>
+        </ul>
+        <a href="#!/step2"> Design gekozen fles </a>
+    </div>
+
+</section>

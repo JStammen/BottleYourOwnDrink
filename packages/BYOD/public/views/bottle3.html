@@ -1,0 +1,220 @@
+<div class="container" data-ng-controller="BYODControllerStep2" data-ng-init="retrievePickedBottle()">
+
+    <div class="row">
+
+        <div class="col-md-3 col-md-offset-3">
+            <canvas id="canvas" width="280" height="500"></canvas>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="col-md-4 col-md-offset-2">
+                <h1>{{bottle.name}}</h1>
+                <br>
+
+                <button type="button" class="btn btn-primary btn-lg btn-info">Klaar</button>
+
+                <br>
+                <br>
+
+                <button type="button" class="btn btn-primary btn-lg btn-info" ng-click="clearCanvas()">Herstart</button>
+
+                <br>
+                <br>
+
+                <input class="btn btn-primary btn-lg custom-file-input btn-info" type="file" id="imageLoader"
+                       name="imageLoader"/>
+
+                <br>
+                <br>
+
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary btn-lg btn-info" ng-click="addText(inputText)">Voeg tekst toe
+                        </button>
+                    </div>
+                    <input type="text" ng-model="inputText" maxlength="120">
+                    <br>
+
+                </div>
+                <br>
+                <a id="imageSaver" href="#">Save image</a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-12">
+
+            <br>
+            <br>
+            <br>
+
+            <div role="tabpanel">
+
+                <div class="col-md-8 col-md-offset-2">
+
+                    <a class="btn btn-default" href="#home" role="button" data-toggle="tab" id="id0"></a> SELECTEER DE
+                    DOP KLEUR
+                    &nbsp;
+                    <a class="btn btn-default" href="#profile" role="button" data-toggle="tab" id="id1"></a> SELECTEER
+                    DE FLES
+                    KLEUR
+                    &nbsp;
+                    <a class="btn btn-default" href="#messages" role="button" data-toggle="tab" id="id2"></a> SELECTEER
+                    DE BODEM
+                    KLEUR
+                    &nbsp;
+
+                </div>
+
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+
+                        <div class="col-md-6 col-md-offset-4">
+
+                            <br>
+
+                            <div class="" data-toggle="buttons">
+                                <label class="btn btn-primary-red" ng-click="changeColour('#FF5050', 0)">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary" ng-click="changeColour('#0099FF', 0)">
+                                    <input type="radio" name="options" id="option2" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-green" ng-click="changeColour('#00FF00', 0)">
+                                    <input type="radio" name="options" id="option3" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-yellow" ng-click="changeColour('#FFFF66', 0)">
+                                    <input type="radio" name="options" id="option4" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-purple" ng-click="changeColour('#9933FF', 0)">
+                                    <input type="radio" name="options" id="option5" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-orange" ng-click="changeColour('#FF9900', 0)">
+                                    <input type="radio" name="options" id="option6" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <br>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">
+
+                        <div class="col-md-4 col-md-offset-4">
+
+                            <br>
+
+                            <div class="" data-toggle="buttons">
+                                <label class="btn btn-primary-red" ng-click="changeColour('#FF5050', 1)">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary" ng-click="changeColour('#0099FF', 1)">
+                                    <input type="radio" name="options" id="option2" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-green" ng-click="changeColour('#00FF00', 1)">
+                                    <input type="radio" name="options" id="option3" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-yellow" ng-click="changeColour('#FFFF66', 1)">
+                                    <input type="radio" name="options" id="option4" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-purple" ng-click="changeColour('#9933FF', 1)">
+                                    <input type="radio" name="options" id="option5" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-orange" ng-click="changeColour('#FF9900', 1)">
+                                    <input type="radio" name="options" id="option6" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <br>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">
+
+                        <div class="col-md-6 col-md-offset-4">
+
+                            <br>
+
+                            <div class="" data-toggle="buttons">
+                                <label class="btn btn-primary-red" ng-click="changeColour('#FF5050', 2)">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary" ng-click="changeColour('#0099FF', 2)">
+                                    <input type="radio" name="options" id="option2" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-green" ng-click="changeColour('#00FF00', 2)">
+                                    <input type="radio" name="options" id="option3" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-yellow" ng-click="changeColour('#FFFF66', 2)">
+                                    <input type="radio" name="options" id="option4" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-purple" ng-click="changeColour('#9933FF', 2)">
+                                    <input type="radio" name="options" id="option5" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <label class="btn btn-primary-orange" ng-click="changeColour('#FF9900', 2)">
+                                    <input type="radio" name="options" id="option6" autocomplete="off">
+                                    &nbsp; &nbsp;
+                                </label>
+                                <br>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <br>
+
+            </div>
+
+            <div class="row">
+
+                <br />
+                <br />
+                <br />
+
+                <div class="col-md-2">
+
+                    <a type="button" class="btn btn-primary btn-lg btn-info" href="#!/choose/bottle"><i
+                            class="fa fa-arrow-left"></i> | VORIGE</a>
+
+                </div>
+
+                <div class="col-md-2 col-md-offset-8">
+
+                    <a type="button" ng-click="saveMadeBottle()" class="btn btn-primary btn-lg btn-info" href="/#!/betaling/{{global.user._id}}"><i
+                            class="fa fa-arrow-right"></i> | VOLGENDE</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

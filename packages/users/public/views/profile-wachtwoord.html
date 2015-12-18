@@ -1,0 +1,48 @@
+<section>
+    <div class="page {{ pageIndex }}" ng-view></div>
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1" data-ng-controller="ProfileCtrlPassword">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profiel van {{global.user.name}}</h3>
+                    <span class="pull-right">
+                        <!-- Tabs -->
+                        <ul class="nav panel-tabs">
+                            <li><a href="/#!/auth/profile/overzicht/{{global.user._id}}">Overzicht</a>
+                            </li>
+                            <li class="active"><a href="/#!/auth/profile/wachtwoord/{{global.user._id}}">Wachtwoord
+                                veranderen</a></li>
+                            <li><a href="/#!/auth/profile/bestellingen/{{global.user._id}}">Bestelling
+                                historie</a></li>
+                        </ul>
+                    </span>
+                </div>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab2">
+                                <div class="panel panel-default">
+                                    <form ng-submit="changeUserPassword()" data-ng-controller="ProfileCtrlPassword">
+                                        <div class="alert alert-success animated fadeIn" ng-show="successMessage">{{successMessage}}</div>
+                                        <div ng-repeat="error in validationError">
+                                            <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
+                                        </div>
+                                        <label for="newPass">Nieuw wachtwoord: </label>
+                                        <input required id="newPass" type="password" name="newPass"
+                                               placeholder="Nieuw wachtwoord" ng-model="user.password">
+                                        <br/>
+                                        <label for="newPassConfirm">Bevestig nieuw wachtwoord: </label>
+                                        <input required id="newPassConfirm" type="password" name="newPassConfirm"
+                                               placeholder="Bevestig wachtwoord" ng-model="user.confirmPassword">
+                                        <hr>
+                                        <button class="btn btn-primary" type="submit">Update</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

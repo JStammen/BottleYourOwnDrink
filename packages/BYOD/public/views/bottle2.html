@@ -1,0 +1,98 @@
+<div class="container" data-ng-controller="BYODControllerStep1">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+
+                        <div class="col-md-6 col-md-offset-5">
+
+                            <img src="{{bottles[0].image}}" ng-click="selection(bottles[0])" height="300" width="150" alt="2" role="tab" data-toggle="tab" aria-controls="bottle1">
+                            <div class="carousel-caption">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="item ">
+
+                        <div class="col-md-6 col-md-offset-5">
+
+                            <img src="{{bottles[1].image}}" ng-click="selection(bottles[1])" height="300" width="150" alt="2" role="tab" data-toggle="tab" aria-controls="bottle1">
+                            <div class="carousel-caption">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="item ">
+
+                        <div class="col-md-6 col-md-offset-5">
+
+                            <img src="{{bottles[2].image}}" ng-click="selection(bottles[2])" height="300" width="150" alt="2" role="tab" data-toggle="tab" aria-controls="bottle1">
+                            <div class="carousel-caption">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <a ng-non-bindable class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a ng-non-bindable class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+        </div>
+
+        <div class="col-md-12">
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">
+
+                <a type="button" class="btn btn-primary btn-lg btn-info" href="#!/chooose/product"><i class="fa fa-arrow-left"></i> | VORIGE</a>
+
+            </div>
+
+            <div class="col-md-2 col-md-offset-8">
+
+                <a type="button" class="btn btn-primary btn-lg btn-info" href="#!/create/bottle"><i class="fa fa-arrow-right"></i> | VOLGENDE</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

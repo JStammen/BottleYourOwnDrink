@@ -1,0 +1,47 @@
+<section class="welcome container-fluid" >
+    <div class="col-md-12 row">
+
+        <script src="/bower_components/fabric/dist/fabric.js"></script>
+        <h1>Design je fles</h1>
+
+        <p> Gekozen fles: {{bottle.name}}</p>
+
+        <p><input type="file" id="imageLoader" name="imageLoader"/></p>
+        <br>
+        <p>
+            <canvas id="canvas" width="400" height="500"></canvas>
+        </p>
+        <br>
+
+        <p><input type="text" ng-model="inputText" maxlength="120">
+            <button ng-click="addText(inputText)">Voeg tekst toe</button>
+        </p>
+        <p><a id="imageSaver" href="#">Save image</a></p>
+        <br>
+
+        <div class="col-md-12">
+            <div class="col-md-1" style="background-color: #FF5050" ng-click="changeColour('#FF5050', 0)">red</div>
+            <div class="col-md-1" style="background-color: blue" ng-click="changeColour('blue', 0)">blue</div>
+            <div class="col-md-2" style="background-color: white" ng-click="changeColour('white', 0)">No colour</div>
+            <div class="col-md-1" style="background-color: #00FF40" ng-click="changeColour('#00FF40', 0)">green</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-1" style="background-color: #FF5050" ng-click="changeColour('#FF5050', 1)">red</div>
+            <div class="col-md-1" style="background-color: blue" ng-click="changeColour('blue', 1)">blue</div>
+            <div class="col-md-2" style="background-color: white" ng-click="changeColour('white', 1)">No colour</div>
+            <div class="col-md-1" style="background-color: green" ng-click="changeColour('green', 1)">green</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-1" style="background-color: red" ng-click="changeColour('red', 2)">red</div>
+            <div class="col-md-1" style="background-color: blue" ng-click="changeColour('blue', 2)">blue</div>
+            <div class="col-md-2" style="background-color: white" ng-click="changeColour('white', 2)">No colour</div>
+            <div class="col-md-1" style="background-color: green" ng-click="changeColour('green', 2)">green</div>
+        </div>
+        <br>
+        <a href="#!/step3"> Mix je eigen drinken </a>
+    </div>
+
+    </div>
+
+
+</section>

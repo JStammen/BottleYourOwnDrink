@@ -1,0 +1,204 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the swagger documentation for the BYOD application. This application is used for creating custom bottles and drinks that the user can make.",
+        "version": "1.0.1",
+        "title": "Bottle Your Own Drink",
+        "contact": {
+            "email": "bottleyourowndrink@gmail.com"
+        }
+    },
+    "tags": [
+        {
+            "name": "user",
+            "description": "Operations that are used to manipulate the user."
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/auth/profile/overzicht/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get current user",
+                "description": "This is used to get the user object of the current user so that it's information may be         presented on the profile page. This method is only used when the user is logged in.",
+                "operationId": "getSingleUser",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "userID",
+                        "description": "Is used to find the current user in the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "User is niet gevonden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "User is gevonden, sending back profile information"
+                    }
+                }
+            }
+        },
+        "/auth/profile/bestellingen/": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get current user",
+                "description": "The same method as the profile route. The user object that is returned is used to display the orders that were made.",
+                "operationId": "getSingleUser",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "userID",
+                        "description": "Is used to find the current user in the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "User is niet gevonden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "User is gevonden, sending back profile information"
+                    }
+                }
+            }
+        },
+        "/changePassword/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update password of the current user",
+                "description": "This updates the current user's password to the supplied input. The method hashes the password with a new salt and the inserts both the hashed_password and the new salt.",
+                "operationId": "changeUserPassword",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "userID",
+                        "description": "Is used to find the current user in the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Wachtwoord moet tussen de 8-20 karakters zijn."
+                    },
+                    "201": {
+                        "description": "Wachtwoorden zijn niet gelijk"
+                    },
+                    "404": {
+                        "description": "User is niet gevonden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "User is gevonden, sending back profile information"
+                    }
+                }
+            }
+        },
+        "/updateProfile/": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Update the information of the current user.",
+                "description": "This updates the users name, username and email to the new supplied inputs.",
+                "operationId": "changeUserInformation",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "userID",
+                        "description": "Is used to find the current user in the database.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                ],
+                "responses": {
+                    "404": {
+                        "description": "User is niet gevonden",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "default": {
+                        "description": "User is gevonden, sending back profile information"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "properties": {
+                "_id": {
+                    "type": "integer"
+                },
+                "mail": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "roles": {
+                    "type": "string"
+                },
+                "hashed_password": {
+                    "type": "string"
+                },
+                "salt": {
+                    "type": "string"
+                },
+                "provider": {
+                    "type": "string"
+                },
+                "resetPasswordToken": {
+                    "type": "string"
+                },
+                "resetPasswordExpires": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Order"
+            }
+        },
+        "Error": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

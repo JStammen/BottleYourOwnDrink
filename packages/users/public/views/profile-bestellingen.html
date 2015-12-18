@@ -1,0 +1,55 @@
+<section>
+    <div class="page {{ pageIndex }}" ng-view></div>
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1" data-ng-controller="ProfileCtrlOrders">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profiel van {{global.user.name}}</h3>
+                    <span class="pull-right">                        <!-- Tabs -->
+                       <ul class="nav panel-tabs">
+                           <li><a href="/#!/auth/profile/overzicht/{{global.user._id}}">Overzicht</a>
+                           </li>
+                           <li><a href="/#!/auth/profile/wachtwoord/{{global.user._id}}">Wachtwoord
+                               veranderen</a></li>
+                           <li class="active"><a href="/#!/auth/profile/bestellingen/{{global.user._id}}">Bestelling
+                               historie</a></li>
+                       </ul>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"> Hier zie je een overzicht van al je bestellingen die je
+                                    eerder hebt gemaakt.
+                                </div>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Datum</th>
+                                        <th>Fles type</th>
+                                        <th>Hoeveelheid</th>
+                                        <th>Kosten</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="order in orderList">
+                                        <td>{{order.orderID}}</td>
+                                        <td>{{order.orderDate}}</td>
+                                        <td>{{order.bottleType}}</td>
+                                        <td>{{order.orderAmount}}</td>
+                                        <td>{{order.orderPrice}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

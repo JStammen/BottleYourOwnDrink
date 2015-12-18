@@ -1,0 +1,29 @@
+<section class="welcome container-fluid" data-ng-controller="BYODControllerStep3" >
+    <script src="bower_components/fabric/dist/fabric.js"></script>
+    <div class="col-md-12 row">
+        <h1>Mix your drink</h1>
+
+        <div class="col-md-4">
+            <p><canvas style="border: solid 1px black" id="canvas" width="200" height="200"></canvas></p>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li ng-repeat="fruit in fruits">
+
+                    <img  src="{{fruit.imgsrc}}" width="150" height="150" id="{{fruit.id}}">
+
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li ng-repeat="liquids in dairy">
+                    <img src="{{liquids.imgsrc}}" width="150" height="150" id="{{liquids.id}}">
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+</section>

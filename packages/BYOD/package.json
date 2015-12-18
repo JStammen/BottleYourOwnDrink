@@ -1,0 +1,15 @@
+{
+  "name": "BYOD",
+  "version": "0.0.1",
+  "description": "This is the package that will form the bottle your own drink fucntionality.",
+  "author": {
+    "name": "Bottle your own Drink"
+  },
+  "mean": "0.4.0",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "dependencies": {},
+  "license": "MIT"
+}

@@ -1,0 +1,52 @@
+<section>
+    <div class="page {{ pageIndex }}" ng-view></div>
+    <div class="row">
+        <div class="col-md-9 col-md-offset-1" data-ng-controller="ProfileCtrlMain">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profiel van {{global.user.name}}</h3>
+                    <span class="pull-right">
+                        <!-- Tabs -->
+                      <ul class="nav panel-tabs">
+                          <li class="active"><a href="/#!/auth/profile/overzicht/{{global.user._id}}">Overzicht</a>
+                          </li>
+                          <li><a href="/#!/auth/profile/wachtwoord/{{global.user._id}}">Wachtwoord
+                              veranderen</a></li>
+                          <li><a href="/#!/auth/profile/bestellingen/{{global.user._id}}">Bestelling
+                              historie</a></li>
+                      </ul>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">
+                            <div class="panel panel-default">
+                                <form ng-submit="changeUserInformation()" data-ng-controller="ProfileCtrlMain" >
+                                <div class="alert alert-success animated fadeIn" ng-show="message">{{message}}</div>
+                                <div class="panel-heading"> Hier vind je een overzicht van al je persoonlijk informatie</div>
+                                <label for="name_block">Naam: </label>
+                                <input required id="name_block" type="text" name="name" placeholder="{{name}}"
+                                       ng-model="user.name">
+                                <br/>
+                                <label for="username_block">Gebruikersnaam: </label>
+                                <input required id="username_block" type="text" name="username" placeholder="{{username}}"
+                                       ng-model="user.username">
+                                <br/>
+                                <label for="email_block">Email: </label>
+                                <input required id="email_block" type="email" name="email"
+                                       placeholder="{{email}}" ng-model="user.email">
+                                <hr>
+                                <button class="btn btn-primary" type="submit">Update</button>
+                                </form>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
